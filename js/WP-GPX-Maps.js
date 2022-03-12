@@ -882,6 +882,7 @@ var WPGPXMAPS = {
 					'lng': pos[1],
 					'name': ngg_span_a.getAttribute( 'data-title' ),
 					'url': ngg_span_a.getAttribute( 'data-src' ),
+					'mwlimgid': ngg_span_a.children[0].getAttribute( 'data-mwl-img-id' ),
 					'thumbnail': ngg_span_a.getAttribute( 'data-thumbnail' )
 				});
 
@@ -890,10 +891,13 @@ var WPGPXMAPS = {
 			if ( photos.length > 0 ) {
 				var photoLayer = L.photo.cluster().on( 'click', function( evt ) {
 					var photo = evt.layer.photo;
-					var template = '<img src="{url}" /></a><p>{name}</p>';
-					evt.layer.bindPopup( L.Util.template( template, photo ), {
-					minWidth: 'auto'
-				}).openPopup();
+					var myimg = $('img[data-id="' + photo['mwlimgid'] + '"]')[0];
+                                        myimg.style.width = '150px';
+                                        myimg.style.height = '150px';
+                                        var template = 'img src="{url}" /><p>{name}</p>';
+                                        var myPopup = L.DomUtil.create('div','ThumbnailWindow');
+                                        myPopup.appendChild(myimg);
+                                        evt.layer.bindPopup( myPopup ).openPopup();
 			});
 
 				photoLayer.add( photos ).addTo( map.map );
