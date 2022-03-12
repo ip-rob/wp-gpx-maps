@@ -45,7 +45,7 @@ function wpgpxmaps_getAttachedImages( $dt, $lat, $lon, $dtoffset, &$error ) {
 					if ( ( $item['lat'] != 0 ) || ( $item['lon'] != 0 ) ) {
 						$result[] = $item;
 					} elseif ( isset( $exif['DateTimeOriginal'] ) ) {
-						$_dt   = strtotime( exif['DateTimeOriginal'] ) + $dtoffset;
+						$_dt   = strtotime( $exif['DateTimeOriginal'] ) + $dtoffset;
 						$_item = findItemCoordinate( $_dt, $dt, $lat, $lon );
 						if ( $_item != null ) {
 							$item['lat'] = $_item['lat'];
