@@ -880,10 +880,10 @@ var WPGPXMAPS = {
 				photos.push({
 					'lat': pos[0],
 					'lng': pos[1],
-					'name': ngg_span_a.getAttribute( 'data-title' ),
-					'url': ngg_span_a.getAttribute( 'data-src' ),
+					'name': ngg_span_a.children[0].getAttribute( 'data-title' ),
+					'url': ngg_span_a.children[0].getAttribute( 'data-src' ),
 					'mwlimgid': ngg_span_a.children[0].getAttribute( 'data-mwl-img-id' ),
-					'thumbnail': ngg_span_a.getAttribute( 'data-thumbnail' )
+					'thumbnail': ngg_span_a.children[0].getAttribute( 'src' )
 				});
 
 			}

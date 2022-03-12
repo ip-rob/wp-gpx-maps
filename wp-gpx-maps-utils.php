@@ -25,7 +25,7 @@ function wpgpxmaps_getAttachedImages( $dt, $lat, $lon, $dtoffset, &$error ) {
 			$img_src      = wp_get_attachment_image_src( $attachment_id, 'full' );
 			$img_thmb     = wp_get_attachment_image_src( $attachment_id, 'thumbnail' );
 			$img_metadata = wp_get_attachment_metadata( $attachment_id );
-			$img_file   = get_attached_file ($attachment_id, $unfiltered );
+			$img_file     = get_attached_file ($attachment_id, $unfiltered );
 
 			$item         = array();
 			$item['data'] = wp_get_attachment_link( $attachment_id, array( 105, 105 ) );
